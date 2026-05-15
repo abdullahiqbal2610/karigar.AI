@@ -1,0 +1,14 @@
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Backend
+backend/__pycache__/
+backend/*.pyc
+
+# Mobile App
+mobile_app/__pycache__/
+mobile_app/*.pyc
