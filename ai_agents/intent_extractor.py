@@ -25,6 +25,10 @@ import logging
 from typing import Any
 
 import httpx
+from dotenv import load_dotenv
+
+# Load environment variables from .env file if it exists
+load_dotenv()
 
 # ── Logging setup ────────────────────────────────────────────────────────────
 logging.basicConfig(
