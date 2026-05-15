@@ -22,6 +22,7 @@ import json
 import os
 import re
 import logging
+from datetime import datetime
 from typing import Any
 
 import httpx
@@ -69,10 +70,9 @@ the user's specifics. null if none. |
 | location        | string or null  | The geographical location or area mentioned. Preserve the user's own \
 wording but capitalise it consistently (e.g. "DHA Phase 5", "Gulshan-e-Iqbal \
 Block 13", "F-8 Islamabad"). null if no location mentioned. |
-| time            | string or null  | When the user wants the service. Convert colloquial references to a clear \
-phrase: "kal subah" → "Tomorrow Morning", "aaj raat" → "Tonight", \
-"abhi" / "foran" → "Immediately", "parson" → "Day After Tomorrow". \
-If a specific date/day is given, keep it. null if not mentioned. |
+| raw_time        | string or null  | The exact timing phrase the user used (e.g. "kal subah", "aaj raat", "foran"). null if not mentioned. |
+| target_date     | string or null  | Translate the raw_time into an exact ISO date (YYYY-MM-DD). You will be given the CURRENT SYSTEM DATE. If the user says "kal" and today is 2026-05-15, this MUST be "2026-05-16". null if no timing is implied. |
+| target_time_slot| "Morning" \\| "Afternoon" \\| "Evening" \\| "Night" \\| "Immediate" \\| "Any" | Categorise the time. "kal subah" -> Morning. "abhi" -> Immediate. null if no timing mentioned. |
 | urgency         | "High" \\| "Medium" \\| "Low" | Infer from the user's tone, punctuation, \
 and word choice. Indicators: \
 **High** → words like "foran", "abhi", "emergency", "jaldi", "urgent", \
@@ -159,16 +159,13 @@ def _extract_json_from_response(raw_text: str) -> dict[str, Any]:
     """
     text = raw_text.strip()
 
-    # Strip optional markdown code fences
-    fence_pattern = re.compile(
-        r"^```(?:json)?\s*\n?(.*?)\n?\s*```$", re.DOTALL
-    )
-    match = fence_pattern.match(text)
-    if match:
-        text = match.group(1).strip()
+    # Strip out markdown backticks and 'json' keyword
+    text = re.sub(r"```json", "", text, flags=re.IGNORECASE)
+    text = text.replace("```", "")
+    text = text.strip()
 
-    # Fallback: grab the first { ... } block
-    if not text.startswith("{"):
+    # Fallback: grab the { ... } block if there's still leading/trailing junk
+    if not text.startswith("{") or not text.endswith("}"):
         brace_match = re.search(r"\{.*\}", text, re.DOTALL)
         if brace_match:
             text = brace_match.group(0)
@@ -267,13 +264,19 @@ def extract_intent(
     else:
         user_content = user_message
 
-    # ── Build the request payload ────────────────────────────────────────
+    # ── Build the payload ────────────────────────────────────────────────
+    
+    current_date = datetime.now().strftime("%Y-%m-%d, %A")
+    formatted_system_prompt = SYSTEM_PROMPT.replace(
+        "CURRENT SYSTEM DATE", f"CURRENT SYSTEM DATE ({current_date})"
+    )
+
     payload = {
         "model": model,
         "temperature": temperature,
         "max_tokens": max_tokens,
         "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": formatted_system_prompt},
             {"role": "user", "content": user_content},
         ],
     }

@@ -48,8 +48,9 @@ logger = logging.getLogger("matchmaker")
 DEFAULT_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai"
 DEFAULT_MODEL = "gemini-2.5-flash"
 
-# ── Path to the technician database ─────────────────────────────────────────
+# ── Paths ───────────────────────────────────────────────────────────────────
 DB_PATH = Path(__file__).parent / "karigars_db.json"
+LEDGER_PATH = Path(__file__).parent / "appointments_ledger.json"
 
 # ── Hardcoded user-location coordinates for testing ─────────────────────────
 # In production this would come from the mobile app's GPS or a geocoding API.
@@ -251,6 +252,7 @@ def _extract_json_from_response(raw_text: str) -> dict[str, Any]:
 def find_best_match(
     intent_json: dict[str, Any],
     *,
+    rejected_ids: list[str] | None = None,
     api_key: str | None = None,
     base_url: str | None = None,
     model: str | None = None,
@@ -280,6 +282,7 @@ def find_best_match(
     location = intent_json.get("location")
     urgency = intent_json.get("urgency", "Medium")
     tier_pref = intent_json.get("tier", "Any")
+    target_date = intent_json.get("target_date")
 
     if not service_type:
         raise ValueError("intent_json must contain a non-null 'service_type'.")
@@ -294,15 +297,45 @@ def find_best_match(
     # STEP A — Deterministic Filter
     # ══════════════════════════════════════════════════════════════════════
 
-    # A1: Filter by skill match
+    # A1: Filter by skill match and rejected_ids
+    rejected_ids = rejected_ids or []
     matched = [
         k for k in all_karigars
         if any(service_type.lower() in skill.lower() for skill in k["skills"])
+        and k["id"] not in rejected_ids
     ]
     logger.info(
         "Skill filter: %d / %d technicians match '%s'",
         len(matched), len(all_karigars), service_type,
     )
+
+    # A2: Filter by availability (max 2 bookings per day)
+    if target_date:
+        if LEDGER_PATH.exists():
+            with open(LEDGER_PATH, "r", encoding="utf-8") as f:
+                try:
+                    ledger = json.load(f)
+                except json.JSONDecodeError:
+                    ledger = []
+        else:
+            ledger = []
+
+        # Count bookings per karigar for the target date
+        bookings_for_date = {}
+        for appt in ledger:
+            if appt.get("date") == target_date:
+                kid = appt.get("karigar_id")
+                bookings_for_date[kid] = bookings_for_date.get(kid, 0) + 1
+
+        # Drop karigars with >= 2 bookings
+        available_matched = []
+        for k in matched:
+            if bookings_for_date.get(k["id"], 0) < 2:
+                available_matched.append(k)
+        
+        dropped = len(matched) - len(available_matched)
+        matched = available_matched
+        logger.info("Availability filter: %d dropped because they are fully booked on %s", dropped, target_date)
 
     if not matched:
         return {
@@ -334,8 +367,8 @@ def find_best_match(
     logger.info("Shortlist (%d candidates):", len(matched))
     for k in matched:
         logger.info(
-            "  • %s  |  %.1f★  |  %s  |  %s km  |  %s",
-            k["name"], k["rating"], k["tier"],
+            "  • %s (%s)  |  %.1f★  |  %s  |  %s km  |  %s",
+            k["name"], k.get("phone_number", "No Phone"), k["rating"], k["tier"],
             k["distance_km"], k["base_location_name"],
         )
 
