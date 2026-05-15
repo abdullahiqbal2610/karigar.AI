@@ -1,13 +1,18 @@
 """
 intent_extractor.py
 ====================
-Parses natural-language home-service requests (Roman Urdu / Urdu / English)
-into a structured JSON intent using the Google Gemini API.
+Multimodal intent parser for home-service requests (Roman Urdu / Urdu /
+English).  Accepts text and/or an image.  Uses any OpenAI-compatible
+chat-completion endpoint via httpx (works with Gemini via OpenAI-compat
+layer, OpenAI, Groq, Together, local Ollama, etc.).
 
 Environment variables
 ---------------------
-GEMINI_API_KEY   – Your Google AI Studio API key.
-GEMINI_MODEL     – Model identifier to use.
+LLM_API_KEY      – Bearer token / API key for the LLM provider.
+LLM_BASE_URL     – Base URL of the chat-completions endpoint.
+                   Defaults to "https://generativelanguage.googleapis.com/v1beta/openai"
+                   (Google Gemini OpenAI-compatible endpoint).
+LLM_MODEL        – Model identifier to use.
                    Defaults to "gemini-2.5-flash"
 """
 
@@ -19,6 +24,7 @@ import re
 import logging
 from typing import Any
 
+import httpx
 
 # ── Logging setup ────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -27,9 +33,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger("intent_extractor")
 
-# ── Gemini defaults ──────────────────────────────────────────────────────────
+# ── LLM connection defaults ─────────────────────────────────────────────────
+# Google Gemini's OpenAI-compatible endpoint
+DEFAULT_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai"
 DEFAULT_MODEL = "gemini-2.5-flash"
 DEFAULT_TEMPERATURE = 0.0          # deterministic extraction
+DEFAULT_MAX_TOKENS = 512           # JSON output is compact
 
 # ── System prompt ────────────────────────────────────────────────────────────
 SYSTEM_PROMPT = """\
@@ -105,7 +114,35 @@ HARD RULES
 7. If the entire message is unintelligible or completely unrelated to home \
    services, return all nullable fields as null, set urgency to "Medium", \
    tier to "Any", and raw_language to your best guess.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISION / IMAGE ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+If an image is provided alongside the text message, you MUST analyse it to \
+extract additional context that improves your response.  Specifically:
+- **Identify the appliance / fixture**: brand name, model number, type \
+  (e.g. "Haier 1.5-ton split AC", "Master geyser", "Philips ceiling fan").
+- **Assess visible damage or symptoms**: rust, water stains, burn marks, \
+  ice build-up, cracked pipes, sparking wires, pest droppings, etc.
+- **Refine `service_type`**: use visual evidence to pick the most specific \
+  label (e.g. if the image shows a compressor with frost → \
+  "AC Compressor Repair" rather than generic "AC Repair").
+- **Enrich `service_details`**: mention what you see — e.g. \
+  "Visible refrigerant leak near the copper joint, corrosion on the \
+  outdoor unit fins".
+- **Adjust `urgency`**: if the image shows active flooding, sparking, or \
+  fire damage, override urgency to "High" regardless of the text tone.
+- If the image is irrelevant, blurry, or unrelated to home services, \
+  ignore it and rely solely on the text.
 """
+
+
+def _build_headers(api_key: str | None) -> dict[str, str]:
+    """Construct HTTP headers for the chat-completion request."""
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+    return headers
 
 
 def _extract_json_from_response(raw_text: str) -> dict[str, Any]:
@@ -146,25 +183,41 @@ def _extract_json_from_response(raw_text: str) -> dict[str, Any]:
 def extract_intent(
     user_message: str,
     *,
+    base64_image: str | None = None,
     api_key: str | None = None,
+    base_url: str | None = None,
     model: str | None = None,
     temperature: float = DEFAULT_TEMPERATURE,
+    max_tokens: int = DEFAULT_MAX_TOKENS,
+    timeout: float = 30.0,
 ) -> dict[str, Any]:
     """
-    Send a natural-language home-service request to Google Gemini and return
-    structured intent fields.
+    Send a natural-language (and optionally visual) home-service request
+    to an LLM and return structured intent fields.
 
     Parameters
     ----------
     user_message : str
         The raw user query (Roman Urdu, Urdu, English, or mixed).
+    base64_image : str, optional
+        A base64-encoded image string (JPEG / PNG / WebP).  When provided
+        the payload switches to the OpenAI Vision message format so the
+        model can analyse the photo for brands, damage, and symptoms.
     api_key : str, optional
-        Google AI Studio API key.  Falls back to ``GEMINI_API_KEY`` env var.
+        LLM provider API key.  Falls back to ``LLM_API_KEY`` env var.
+    base_url : str, optional
+        Root URL of the OpenAI-compatible API.
+        Falls back to ``LLM_BASE_URL`` env var, then to Google Gemini's
+        OpenAI-compatible endpoint.
     model : str, optional
-        Gemini model identifier.  Falls back to ``GEMINI_MODEL`` env var,
-        then to ``"gemini-2.5-flash"``.
+        Model identifier.  Falls back to ``LLM_MODEL`` env var, then to
+        ``"gemini-2.5-flash"``.
     temperature : float
         Sampling temperature.  Defaults to 0.0 for deterministic output.
+    max_tokens : int
+        Max tokens in the completion.  512 is plenty for the JSON payload.
+    timeout : float
+        HTTP request timeout in seconds.
 
     Returns
     -------
@@ -174,41 +227,68 @@ def extract_intent(
 
     Raises
     ------
-    google.api_core.exceptions.GoogleAPIError
-        If the Gemini API returns an error.
+    httpx.HTTPStatusError
+        If the LLM API returns a non-2xx status code.
     ValueError
         If the response cannot be parsed as valid JSON.
     """
 
     # ── Resolve configuration ────────────────────────────────────────────
-    api_key = api_key or os.getenv("GEMINI_API_KEY")
+    api_key = api_key or os.getenv("LLM_API_KEY")
     if not api_key:
         raise ValueError(
             "No API key provided. Either pass `api_key=` or set the "
-            "GEMINI_API_KEY environment variable."
+            "LLM_API_KEY environment variable."
         )
 
-    model_name = model or os.getenv("GEMINI_MODEL", DEFAULT_MODEL)
+    base_url = (base_url or os.getenv("LLM_BASE_URL", DEFAULT_BASE_URL)).rstrip("/")
+    model = model or os.getenv("LLM_MODEL", DEFAULT_MODEL)
 
-    # ── Configure the SDK ────────────────────────────────────────────────
+    url = f"{base_url}/chat/completions"
 
-    gemini_model = genai.GenerativeModel(
-        model_name=model_name,
-        system_instruction=SYSTEM_PROMPT,
-        generation_config=genai.types.GenerationConfig(
-            temperature=temperature,
-            response_mime_type="application/json",   # enforce JSON output
-        ),
+    # ── Build the user message content ───────────────────────────────────
+    # Text-only  → simple string  (saves tokens)
+    # With image → OpenAI Vision array format
+    if base64_image:
+        user_content: str | list[dict] = [
+            {"type": "text", "text": user_message},
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{base64_image}",
+                },
+            },
+        ]
+        logger.info("Image attached — using multimodal Vision payload")
+    else:
+        user_content = user_message
+
+    # ── Build the request payload ────────────────────────────────────────
+    payload = {
+        "model": model,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_content},
+        ],
+    }
+
+    logger.info(
+        "Calling LLM  model=%s  url=%s  temp=%.1f  vision=%s",
+        model, url, temperature, bool(base64_image),
     )
-
-    logger.info("Calling Gemini  model=%s  temp=%.1f", model_name, temperature)
     logger.debug("User message: %s", user_message)
 
-    # ── Call the API ─────────────────────────────────────────────────────
-    response = gemini_model.generate_content(user_message)
-    raw_text = response.text
+    # ── Make the HTTP request ────────────────────────────────────────────
+    with httpx.Client(timeout=timeout) as client:
+        response = client.post(url, headers=_build_headers(api_key), json=payload)
+        response.raise_for_status()
 
-    logger.debug("Raw Gemini response:\n%s", raw_text)
+    body = response.json()
+    raw_text = body["choices"][0]["message"]["content"]
+
+    logger.debug("Raw LLM response:\n%s", raw_text)
 
     intent = _extract_json_from_response(raw_text)
 
@@ -238,18 +318,33 @@ def extract_intent(
 # ── CLI / quick-test block ───────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    import base64
+    from pathlib import Path
+
     test_input = (
         "Bhai DHA Phase 5 mein kal subah AC ki gas leak theek karwani hai, "
         "koi sasta banda bhejna yaar."
     )
 
+    # ── Optional: load a real image for multimodal testing ────────────────
+    # To test with an actual photo, place an image file path below.
+    # Example:  TEST_IMAGE_PATH = r"C:\Users\abdul\Pictures\ac_leak.jpg"
+    TEST_IMAGE_PATH: str | None = None  # ← set to a file path to enable
+
+    test_image_b64: str | None = None
+    if TEST_IMAGE_PATH and Path(TEST_IMAGE_PATH).is_file():
+        raw_bytes = Path(TEST_IMAGE_PATH).read_bytes()
+        test_image_b64 = base64.b64encode(raw_bytes).decode("utf-8")
+        logger.info("Loaded test image: %s (%d bytes)", TEST_IMAGE_PATH, len(raw_bytes))
+
     print("=" * 72)
     print("  Karigar.AI — Intent Extractor  (test run)")
     print("=" * 72)
-    print(f"\n📝  Input:\n    \"{test_input}\"\n")
+    print(f"\n📝  Input:\n    \"{test_input}\"")
+    print(f"🖼️  Image: {'attached (' + TEST_IMAGE_PATH + ')' if test_image_b64 else 'none (text-only mode)'}\n")
 
     try:
-        result = extract_intent(test_input)
+        result = extract_intent(test_input, base64_image=test_image_b64)
         print("✅  Extracted Intent:\n")
         print(json.dumps(result, indent=2, ensure_ascii=False))
     except Exception as exc:
@@ -268,6 +363,7 @@ if __name__ == "__main__":
     }
 
     print("\n" + "-" * 72)
-    print("📋  Expected output (for reference):\n")
+    print("📋  Expected output (for reference — text-only mode):\n")
     print(json.dumps(expected, indent=2, ensure_ascii=False))
+    print("\n💡  Tip: Set TEST_IMAGE_PATH above to test multimodal mode.")
     print()
