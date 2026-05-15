@@ -1,0 +1,2066 @@
+[
+  {
+    "id": "KRG-LHR-001",
+    "name": "Sarfraz Javed",
+    "skills": [
+      "Bathroom Renovation",
+      "Appliance Repair"
+    ],
+    "rating": 4.7,
+    "tier": "Budget",
+    "base_location_name": "DHA Phase 5",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4674,
+      "lng": 74.3762
+    }
+  },
+  {
+    "id": "KRG-LHR-002",
+    "name": "Zubair Aslam",
+    "skills": [
+      "Carpet Cleaning",
+      "Solar Panel Installation",
+      "AC Gas Leak Repair"
+    ],
+    "rating": 4.5,
+    "tier": "Premium",
+    "base_location_name": "DHA Phase 6",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4615,
+      "lng": 74.3904
+    }
+  },
+  {
+    "id": "KRG-LHR-003",
+    "name": "Salman Siddiqui",
+    "skills": [
+      "CCTV Installation",
+      "Wardrobe",
+      "UPS / Inverter Repair",
+      "Wall Texturing"
+    ],
+    "rating": 4.8,
+    "tier": "Budget",
+    "base_location_name": "DHA Phase 8",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4527,
+      "lng": 74.4026
+    }
+  },
+  {
+    "id": "KRG-LHR-004",
+    "name": "Nadeem Durrani",
+    "skills": [
+      "Intercom Systems",
+      "Plumbing",
+      "Iron Gate Welding",
+      "Wood Polishing"
+    ],
+    "rating": 5.0,
+    "tier": "Premium",
+    "base_location_name": "Johar Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4651,
+      "lng": 74.2981
+    }
+  },
+  {
+    "id": "KRG-LHR-005",
+    "name": "Babar Tariq",
+    "skills": [
+      "Tile Fixing",
+      "Kitchen Cabinet",
+      "AC Installation",
+      "Marble Polishing"
+    ],
+    "rating": 4.3,
+    "tier": "Budget",
+    "base_location_name": "Model Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4806,
+      "lng": 74.3226
+    }
+  },
+  {
+    "id": "KRG-LHR-006",
+    "name": "Liaqat Qadir",
+    "skills": [
+      "Water Filtration",
+      "Networking",
+      "Appliance Repair"
+    ],
+    "rating": 4.1,
+    "tier": "Premium",
+    "base_location_name": "Gulberg III",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5202,
+      "lng": 74.3462
+    }
+  },
+  {
+    "id": "KRG-LHR-007",
+    "name": "Kashif Rauf",
+    "skills": [
+      "Fumigation",
+      "House Cleaning",
+      "AC Installation",
+      "Carpet Cleaning"
+    ],
+    "rating": 4.9,
+    "tier": "Budget",
+    "base_location_name": "Iqbal Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4712,
+      "lng": 74.2806
+    }
+  },
+  {
+    "id": "KRG-LHR-008",
+    "name": "Jameel Akhtar",
+    "skills": [
+      "Tile Fixing",
+      "False Ceiling",
+      "Fumigation",
+      "Water Heater Installation"
+    ],
+    "rating": 4.3,
+    "tier": "Budget",
+    "base_location_name": "Garden Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5093,
+      "lng": 74.3368
+    }
+  },
+  {
+    "id": "KRG-LHR-009",
+    "name": "Zeeshan Durrani",
+    "skills": [
+      "Tile Fixing",
+      "Carpenter",
+      "Deep Cleaning",
+      "Wall Texturing"
+    ],
+    "rating": 4.3,
+    "tier": "Premium",
+    "base_location_name": "Township",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4526,
+      "lng": 74.3072
+    }
+  },
+  {
+    "id": "KRG-LHR-010",
+    "name": "Atif Mehmood",
+    "skills": [
+      "False Ceiling",
+      "Door Fitting"
+    ],
+    "rating": 4.8,
+    "tier": "Budget",
+    "base_location_name": "Sabzazar",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4888,
+      "lng": 74.2747
+    }
+  },
+  {
+    "id": "KRG-LHR-011",
+    "name": "Yasir Bajwa",
+    "skills": [
+      "Networking",
+      "Wall Putty",
+      "Wiring"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "Wapda Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4507,
+      "lng": 74.2657
+    }
+  },
+  {
+    "id": "KRG-LHR-012",
+    "name": "Qaiser Sheikh",
+    "skills": [
+      "Microwave Repair",
+      "Door Fitting"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "Shahdara",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5948,
+      "lng": 74.303
+    }
+  },
+  {
+    "id": "KRG-LHR-013",
+    "name": "Majid Chaudhry",
+    "skills": [
+      "Intercom Systems",
+      "Pest Control",
+      "Electrician"
+    ],
+    "rating": 4.6,
+    "tier": "Premium",
+    "base_location_name": "Cantt",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5335,
+      "lng": 74.3656
+    }
+  },
+  {
+    "id": "KRG-LHR-014",
+    "name": "Muhammad Raza",
+    "skills": [
+      "Wiring",
+      "False Ceiling",
+      "Water Heater Installation",
+      "Termite Treatment"
+    ],
+    "rating": 3.7,
+    "tier": "Premium",
+    "base_location_name": "Bahria Town Lahore",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.3686,
+      "lng": 74.1829
+    }
+  },
+  {
+    "id": "KRG-LHR-015",
+    "name": "Tariq Paracha",
+    "skills": [
+      "Wiring",
+      "Water Filtration"
+    ],
+    "rating": 3.2,
+    "tier": "Premium",
+    "base_location_name": "Valencia Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.428,
+      "lng": 74.2565
+    }
+  },
+  {
+    "id": "KRG-LHR-016",
+    "name": "Rizwan Paracha",
+    "skills": [
+      "Wardrobe",
+      "Water Tank Cleaning",
+      "Carpet Cleaning",
+      "Intercom Systems"
+    ],
+    "rating": 3.3,
+    "tier": "Budget",
+    "base_location_name": "Faisal Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4812,
+      "lng": 74.3115
+    }
+  },
+  {
+    "id": "KRG-LHR-017",
+    "name": "Junaid Rauf",
+    "skills": [
+      "Intercom Systems",
+      "Pipe Fitting",
+      "POP Ceiling"
+    ],
+    "rating": 4.8,
+    "tier": "Premium",
+    "base_location_name": "Cavalry Ground",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5148,
+      "lng": 74.3585
+    }
+  },
+  {
+    "id": "KRG-LHR-018",
+    "name": "Sajid Hashmi",
+    "skills": [
+      "Water Heater Installation",
+      "UPS / Inverter Repair",
+      "Wall Texturing",
+      "AC Gas Leak Repair"
+    ],
+    "rating": 3.8,
+    "tier": "Budget",
+    "base_location_name": "Muslim Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5122,
+      "lng": 74.322
+    }
+  },
+  {
+    "id": "KRG-LHR-019",
+    "name": "Ibrar Murad",
+    "skills": [
+      "AC Installation",
+      "Networking"
+    ],
+    "rating": 3.7,
+    "tier": "Budget",
+    "base_location_name": "Shadman",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5403,
+      "lng": 74.3313
+    }
+  },
+  {
+    "id": "KRG-LHR-020",
+    "name": "Wali Sohail",
+    "skills": [
+      "Termite Treatment",
+      "Washing Machine Repair",
+      "Solar Water Heater",
+      "Water Heater Installation"
+    ],
+    "rating": 4.0,
+    "tier": "Premium",
+    "base_location_name": "Askari 10",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4401,
+      "lng": 74.2477
+    }
+  },
+  {
+    "id": "KRG-LHR-021",
+    "name": "Waheed Hussain",
+    "skills": [
+      "Plumbing",
+      "POP Ceiling",
+      "AC Compressor Repair",
+      "UPS / Inverter Repair"
+    ],
+    "rating": 4.4,
+    "tier": "Budget",
+    "base_location_name": "Askari 11",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4246,
+      "lng": 74.236
+    }
+  },
+  {
+    "id": "KRG-LHR-022",
+    "name": "Kamran Rauf",
+    "skills": [
+      "Fridge Repair",
+      "Fumigation"
+    ],
+    "rating": 4.7,
+    "tier": "Budget",
+    "base_location_name": "Green Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4759,
+      "lng": 74.2676
+    }
+  },
+  {
+    "id": "KRG-LHR-023",
+    "name": "Awais Hashmi",
+    "skills": [
+      "Geyser Repair",
+      "Oven Repair"
+    ],
+    "rating": 4.8,
+    "tier": "Premium",
+    "base_location_name": "EME Society",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4489,
+      "lng": 74.2743
+    }
+  },
+  {
+    "id": "KRG-LHR-024",
+    "name": "Haroon Bajwa",
+    "skills": [
+      "Electrician",
+      "Wiring",
+      "Furniture Repair"
+    ],
+    "rating": 3.8,
+    "tier": "Premium",
+    "base_location_name": "Gulshan-e-Ravi",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5596,
+      "lng": 74.3522
+    }
+  },
+  {
+    "id": "KRG-LHR-025",
+    "name": "Younus Niazi",
+    "skills": [
+      "Networking",
+      "Pest Control",
+      "Water Filtration"
+    ],
+    "rating": 3.4,
+    "tier": "Budget",
+    "base_location_name": "Mughalpura",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.575,
+      "lng": 74.3669
+    }
+  },
+  {
+    "id": "KRG-LHR-026",
+    "name": "Anwar Paracha",
+    "skills": [
+      "Pipe Fitting",
+      "Microwave Repair",
+      "Painter"
+    ],
+    "rating": 3.5,
+    "tier": "Premium",
+    "base_location_name": "Ichhra",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5278,
+      "lng": 74.3309
+    }
+  },
+  {
+    "id": "KRG-LHR-027",
+    "name": "Akbar Sohail",
+    "skills": [
+      "Painter",
+      "Wall Putty"
+    ],
+    "rating": 4.9,
+    "tier": "Premium",
+    "base_location_name": "Mozang",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5507,
+      "lng": 74.3431
+    }
+  },
+  {
+    "id": "KRG-LHR-028",
+    "name": "Naeem Ghani",
+    "skills": [
+      "UPS / Inverter Repair",
+      "Kitchen Cabinet",
+      "Carpet Cleaning",
+      "Door Fitting"
+    ],
+    "rating": 4.1,
+    "tier": "Budget",
+    "base_location_name": "Allama Iqbal Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4647,
+      "lng": 74.2823
+    }
+  },
+  {
+    "id": "KRG-LHR-029",
+    "name": "Sajid Gill",
+    "skills": [
+      "Duct Cleaning",
+      "Iron Gate Welding",
+      "Wiring"
+    ],
+    "rating": 3.2,
+    "tier": "Budget",
+    "base_location_name": "Taj Bagh",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5837,
+      "lng": 74.3366
+    }
+  },
+  {
+    "id": "KRG-LHR-030",
+    "name": "Muhammad Abbasi",
+    "skills": [
+      "Solar Water Heater",
+      "Furniture Repair",
+      "Plumbing"
+    ],
+    "rating": 4.9,
+    "tier": "Budget",
+    "base_location_name": "Samanabad",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5169,
+      "lng": 74.3105
+    }
+  },
+  {
+    "id": "KRG-LHR-031",
+    "name": "Kamran Asghar",
+    "skills": [
+      "Duct Cleaning",
+      "Carpenter"
+    ],
+    "rating": 4.9,
+    "tier": "Budget",
+    "base_location_name": "Wahdat Road",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4952,
+      "lng": 74.3074
+    }
+  },
+  {
+    "id": "KRG-LHR-032",
+    "name": "Waqas Qadir",
+    "skills": [
+      "Painter",
+      "Fumigation",
+      "Appliance Repair"
+    ],
+    "rating": 4.9,
+    "tier": "Budget",
+    "base_location_name": "Thokar Niaz Baig",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4507,
+      "lng": 74.2111
+    }
+  },
+  {
+    "id": "KRG-LHR-033",
+    "name": "Salman Hashmi",
+    "skills": [
+      "Water Filtration",
+      "Waterproofing",
+      "Networking",
+      "Heating Systems"
+    ],
+    "rating": 5.0,
+    "tier": "Budget",
+    "base_location_name": "Lake City",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.3859,
+      "lng": 74.1603
+    }
+  },
+  {
+    "id": "KRG-LHR-034",
+    "name": "Irfan Aslam",
+    "skills": [
+      "AC Installation",
+      "Tile Fixing",
+      "Painter"
+    ],
+    "rating": 4.4,
+    "tier": "Budget",
+    "base_location_name": "Sui Gas Housing",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4678,
+      "lng": 74.3019
+    }
+  },
+  {
+    "id": "KRG-LHR-035",
+    "name": "Usman Aslam",
+    "skills": [
+      "Wood Polishing",
+      "Sofa Cleaning"
+    ],
+    "rating": 3.0,
+    "tier": "Budget",
+    "base_location_name": "Punjab Society",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4548,
+      "lng": 74.2895
+    }
+  },
+  {
+    "id": "KRG-LHR-036",
+    "name": "Majid Nawaz",
+    "skills": [
+      "Water Tank Cleaning",
+      "Microwave Repair",
+      "Kitchen Cabinet",
+      "AC Installation"
+    ],
+    "rating": 4.0,
+    "tier": "Budget",
+    "base_location_name": "DHA Phase 5",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4677,
+      "lng": 74.3739
+    }
+  },
+  {
+    "id": "KRG-LHR-037",
+    "name": "Awais Paracha",
+    "skills": [
+      "Microwave Repair",
+      "Geyser Repair"
+    ],
+    "rating": 4.6,
+    "tier": "Budget",
+    "base_location_name": "DHA Phase 6",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.459,
+      "lng": 74.3885
+    }
+  },
+  {
+    "id": "KRG-LHR-038",
+    "name": "Kamran Ali",
+    "skills": [
+      "Carpenter",
+      "Generator Repair"
+    ],
+    "rating": 4.1,
+    "tier": "Budget",
+    "base_location_name": "DHA Phase 8",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4512,
+      "lng": 74.4063
+    }
+  },
+  {
+    "id": "KRG-LHR-039",
+    "name": "Waqas Gill",
+    "skills": [
+      "Washing Machine Repair",
+      "Pipe Fitting",
+      "Electrician",
+      "Deep Cleaning"
+    ],
+    "rating": 3.6,
+    "tier": "Budget",
+    "base_location_name": "Johar Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4609,
+      "lng": 74.2954
+    }
+  },
+  {
+    "id": "KRG-LHR-040",
+    "name": "Ibrar Ahmed",
+    "skills": [
+      "Duct Cleaning",
+      "AC Gas Leak Repair",
+      "Fridge Repair",
+      "Carpenter"
+    ],
+    "rating": 4.5,
+    "tier": "Budget",
+    "base_location_name": "Model Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4823,
+      "lng": 74.3229
+    }
+  },
+  {
+    "id": "KRG-LHR-041",
+    "name": "Mohsin Rafiq",
+    "skills": [
+      "Wall Texturing",
+      "Wall Putty",
+      "Generator Repair",
+      "Sofa Cleaning"
+    ],
+    "rating": 4.9,
+    "tier": "Premium",
+    "base_location_name": "Gulberg III",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5232,
+      "lng": 74.3498
+    }
+  },
+  {
+    "id": "KRG-LHR-042",
+    "name": "Junaid Abbasi",
+    "skills": [
+      "Fumigation",
+      "Water Tank Cleaning",
+      "Kitchen Cabinet",
+      "Wiring"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "Iqbal Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4709,
+      "lng": 74.2812
+    }
+  },
+  {
+    "id": "KRG-LHR-043",
+    "name": "Waheed Raza",
+    "skills": [
+      "Networking",
+      "POP Ceiling",
+      "AC Compressor Repair",
+      "Fridge Repair"
+    ],
+    "rating": 4.6,
+    "tier": "Premium",
+    "base_location_name": "Garden Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5053,
+      "lng": 74.3364
+    }
+  },
+  {
+    "id": "KRG-LHR-044",
+    "name": "Owais Nawaz",
+    "skills": [
+      "Bathroom Renovation",
+      "Deep Cleaning"
+    ],
+    "rating": 4.4,
+    "tier": "Budget",
+    "base_location_name": "Township",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4493,
+      "lng": 74.3098
+    }
+  },
+  {
+    "id": "KRG-LHR-045",
+    "name": "Sajid Raza",
+    "skills": [
+      "Networking",
+      "Oven Repair",
+      "Solar Water Heater",
+      "Intercom Systems"
+    ],
+    "rating": 4.1,
+    "tier": "Budget",
+    "base_location_name": "Sabzazar",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4858,
+      "lng": 74.272
+    }
+  },
+  {
+    "id": "KRG-LHR-046",
+    "name": "Irfan Iqbal",
+    "skills": [
+      "Iron Gate Welding",
+      "Microwave Repair",
+      "Wiring",
+      "Solar Water Heater"
+    ],
+    "rating": 3.6,
+    "tier": "Budget",
+    "base_location_name": "Wapda Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4514,
+      "lng": 74.2641
+    }
+  },
+  {
+    "id": "KRG-LHR-047",
+    "name": "Jameel Mustafa",
+    "skills": [
+      "Iron Gate Welding",
+      "AC Gas Leak Repair",
+      "Water Tank Cleaning",
+      "Fridge Repair"
+    ],
+    "rating": 3.4,
+    "tier": "Premium",
+    "base_location_name": "Shahdara",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5952,
+      "lng": 74.3005
+    }
+  },
+  {
+    "id": "KRG-LHR-048",
+    "name": "Wali Ali",
+    "skills": [
+      "House Cleaning",
+      "Iron Gate Welding"
+    ],
+    "rating": 4.8,
+    "tier": "Premium",
+    "base_location_name": "Cantt",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5301,
+      "lng": 74.3696
+    }
+  },
+  {
+    "id": "KRG-LHR-049",
+    "name": "Babar Nazir",
+    "skills": [
+      "Intercom Systems",
+      "Marble Polishing",
+      "Microwave Repair",
+      "AC Gas Leak Repair"
+    ],
+    "rating": 4.8,
+    "tier": "Budget",
+    "base_location_name": "Bahria Town Lahore",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.3641,
+      "lng": 74.1822
+    }
+  },
+  {
+    "id": "KRG-LHR-050",
+    "name": "Liaqat Ghani",
+    "skills": [
+      "Geyser Repair",
+      "Wood Polishing"
+    ],
+    "rating": 4.2,
+    "tier": "Budget",
+    "base_location_name": "Valencia Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4302,
+      "lng": 74.2543
+    }
+  },
+  {
+    "id": "KRG-LHR-051",
+    "name": "Ibrar Bajwa",
+    "skills": [
+      "Fridge Repair",
+      "Painter"
+    ],
+    "rating": 4.2,
+    "tier": "Budget",
+    "base_location_name": "Faisal Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4807,
+      "lng": 74.3119
+    }
+  },
+  {
+    "id": "KRG-LHR-052",
+    "name": "Nadeem Bajwa",
+    "skills": [
+      "Termite Treatment",
+      "Painter",
+      "Pipe Fitting",
+      "Plumbing"
+    ],
+    "rating": 4.4,
+    "tier": "Premium",
+    "base_location_name": "Cavalry Ground",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5142,
+      "lng": 74.3581
+    }
+  },
+  {
+    "id": "KRG-LHR-053",
+    "name": "Pervaiz Qadir",
+    "skills": [
+      "False Ceiling",
+      "Sofa Cleaning",
+      "Wood Polishing",
+      "Wardrobe"
+    ],
+    "rating": 3.3,
+    "tier": "Premium",
+    "base_location_name": "Muslim Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5122,
+      "lng": 74.3181
+    }
+  },
+  {
+    "id": "KRG-LHR-054",
+    "name": "Sohail Sohail",
+    "skills": [
+      "Painter",
+      "False Ceiling",
+      "Water Tank Cleaning"
+    ],
+    "rating": 4.7,
+    "tier": "Budget",
+    "base_location_name": "Shadman",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5369,
+      "lng": 74.3322
+    }
+  },
+  {
+    "id": "KRG-LHR-055",
+    "name": "Atif Bhatti",
+    "skills": [
+      "Furniture Repair",
+      "Water Filtration",
+      "Wood Polishing"
+    ],
+    "rating": 3.3,
+    "tier": "Premium",
+    "base_location_name": "Askari 10",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4369,
+      "lng": 74.2495
+    }
+  },
+  {
+    "id": "KRG-LHR-056",
+    "name": "Mubashir Qadir",
+    "skills": [
+      "Water Heater Installation",
+      "Water Filtration",
+      "Door Fitting",
+      "Kitchen Cabinet"
+    ],
+    "rating": 3.7,
+    "tier": "Budget",
+    "base_location_name": "Askari 11",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4236,
+      "lng": 74.2373
+    }
+  },
+  {
+    "id": "KRG-LHR-057",
+    "name": "Majid Siddiqui",
+    "skills": [
+      "Bathroom Renovation",
+      "Intercom Systems",
+      "Heating Systems",
+      "Fridge Repair"
+    ],
+    "rating": 3.8,
+    "tier": "Budget",
+    "base_location_name": "Green Town",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4744,
+      "lng": 74.2653
+    }
+  },
+  {
+    "id": "KRG-LHR-058",
+    "name": "Zahid Nawaz",
+    "skills": [
+      "Furniture Repair",
+      "Tile Fixing",
+      "Carpenter",
+      "Geyser Repair"
+    ],
+    "rating": 3.3,
+    "tier": "Budget",
+    "base_location_name": "EME Society",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.4489,
+      "lng": 74.2734
+    }
+  },
+  {
+    "id": "KRG-LHR-059",
+    "name": "Kashif Aslam",
+    "skills": [
+      "Fumigation",
+      "AC Gas Leak Repair",
+      "AC Compressor Repair"
+    ],
+    "rating": 4.0,
+    "tier": "Premium",
+    "base_location_name": "Gulshan-e-Ravi",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.5619,
+      "lng": 74.3515
+    }
+  },
+  {
+    "id": "KRG-LHR-060",
+    "name": "Babar Raza",
+    "skills": [
+      "Termite Treatment",
+      "Furniture Repair",
+      "Washing Machine Repair",
+      "Fridge Repair"
+    ],
+    "rating": 4.6,
+    "tier": "Budget",
+    "base_location_name": "Mughalpura",
+    "city": "Lahore",
+    "coordinates": {
+      "lat": 31.573,
+      "lng": 74.3677
+    }
+  },
+  {
+    "id": "KRG-ISB-001",
+    "name": "Saad Usmani",
+    "skills": [
+      "Water Heater Installation",
+      "Solar Panel Installation",
+      "Fumigation"
+    ],
+    "rating": 5.0,
+    "tier": "Premium",
+    "base_location_name": "F-6",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7263,
+      "lng": 73.0661
+    }
+  },
+  {
+    "id": "KRG-ISB-002",
+    "name": "Sajid Ali",
+    "skills": [
+      "Networking",
+      "Water Tank Cleaning",
+      "Sofa Cleaning",
+      "Geyser Repair"
+    ],
+    "rating": 3.8,
+    "tier": "Budget",
+    "base_location_name": "F-7",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7204,
+      "lng": 73.0597
+    }
+  },
+  {
+    "id": "KRG-ISB-003",
+    "name": "Asghar Siddiqui",
+    "skills": [
+      "Generator Repair",
+      "Oven Repair",
+      "Painter"
+    ],
+    "rating": 4.5,
+    "tier": "Budget",
+    "base_location_name": "F-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7086,
+      "lng": 73.0546
+    }
+  },
+  {
+    "id": "KRG-ISB-004",
+    "name": "Liaqat Rauf",
+    "skills": [
+      "Carpenter",
+      "Microwave Repair"
+    ],
+    "rating": 3.7,
+    "tier": "Budget",
+    "base_location_name": "F-10",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6969,
+      "lng": 73.0169
+    }
+  },
+  {
+    "id": "KRG-ISB-005",
+    "name": "Habib Asghar",
+    "skills": [
+      "Wiring",
+      "Door Fitting",
+      "Networking"
+    ],
+    "rating": 4.5,
+    "tier": "Budget",
+    "base_location_name": "F-11",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6901,
+      "lng": 72.9999
+    }
+  },
+  {
+    "id": "KRG-ISB-006",
+    "name": "Akbar Asghar",
+    "skills": [
+      "Marble Polishing",
+      "Microwave Repair",
+      "Intercom Systems",
+      "Oven Repair"
+    ],
+    "rating": 3.1,
+    "tier": "Budget",
+    "base_location_name": "G-6",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7273,
+      "lng": 73.0793
+    }
+  },
+  {
+    "id": "KRG-ISB-007",
+    "name": "Asghar Tariq",
+    "skills": [
+      "Water Tank Cleaning",
+      "CCTV Installation",
+      "Wardrobe"
+    ],
+    "rating": 4.9,
+    "tier": "Premium",
+    "base_location_name": "G-7",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7129,
+      "lng": 73.0657
+    }
+  },
+  {
+    "id": "KRG-ISB-008",
+    "name": "Sajid Usmani",
+    "skills": [
+      "Carpenter",
+      "House Cleaning",
+      "Wall Texturing",
+      "Fridge Repair"
+    ],
+    "rating": 3.3,
+    "tier": "Premium",
+    "base_location_name": "G-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6971,
+      "lng": 73.0499
+    }
+  },
+  {
+    "id": "KRG-ISB-009",
+    "name": "Owais Saeed",
+    "skills": [
+      "Networking",
+      "Intercom Systems"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "G-9",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6967,
+      "lng": 73.0272
+    }
+  },
+  {
+    "id": "KRG-ISB-010",
+    "name": "Akbar Mirza",
+    "skills": [
+      "Wardrobe",
+      "Microwave Repair",
+      "POP Ceiling"
+    ],
+    "rating": 4.4,
+    "tier": "Budget",
+    "base_location_name": "G-10",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6957,
+      "lng": 73.0153
+    }
+  },
+  {
+    "id": "KRG-ISB-011",
+    "name": "Usman Hussain",
+    "skills": [
+      "Water Heater Installation",
+      "Solar Water Heater",
+      "Geyser Repair",
+      "Oven Repair"
+    ],
+    "rating": 4.4,
+    "tier": "Budget",
+    "base_location_name": "G-11",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6884,
+      "lng": 72.9991
+    }
+  },
+  {
+    "id": "KRG-ISB-012",
+    "name": "Taimoor Butt",
+    "skills": [
+      "House Cleaning",
+      "Painter",
+      "Geyser Repair",
+      "Termite Treatment"
+    ],
+    "rating": 3.3,
+    "tier": "Premium",
+    "base_location_name": "G-13",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6657,
+      "lng": 72.9768
+    }
+  },
+  {
+    "id": "KRG-ISB-013",
+    "name": "Tanveer Akhtar",
+    "skills": [
+      "Appliance Repair",
+      "House Cleaning",
+      "AC Installation"
+    ],
+    "rating": 3.8,
+    "tier": "Premium",
+    "base_location_name": "G-14",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6602,
+      "lng": 72.9635
+    }
+  },
+  {
+    "id": "KRG-ISB-014",
+    "name": "Shoaib Gill",
+    "skills": [
+      "POP Ceiling",
+      "Wardrobe"
+    ],
+    "rating": 4.4,
+    "tier": "Budget",
+    "base_location_name": "G-15",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6481,
+      "lng": 72.9453
+    }
+  },
+  {
+    "id": "KRG-ISB-015",
+    "name": "Junaid Gill",
+    "skills": [
+      "Tile Fixing",
+      "Carpenter",
+      "Wood Polishing",
+      "AC Installation"
+    ],
+    "rating": 4.2,
+    "tier": "Budget",
+    "base_location_name": "I-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6632,
+      "lng": 73.069
+    }
+  },
+  {
+    "id": "KRG-ISB-016",
+    "name": "Pervaiz Sohail",
+    "skills": [
+      "Solar Water Heater",
+      "Solar Panel Installation"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "I-9",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6561,
+      "lng": 73.0499
+    }
+  },
+  {
+    "id": "KRG-ISB-017",
+    "name": "Zeeshan Bhatti",
+    "skills": [
+      "Termite Treatment",
+      "Marble Polishing",
+      "UPS / Inverter Repair"
+    ],
+    "rating": 4.4,
+    "tier": "Premium",
+    "base_location_name": "I-10",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6502,
+      "lng": 73.0212
+    }
+  },
+  {
+    "id": "KRG-ISB-018",
+    "name": "Rameez Mirza",
+    "skills": [
+      "UPS / Inverter Repair",
+      "Wiring",
+      "Water Filtration",
+      "Pipe Fitting"
+    ],
+    "rating": 4.8,
+    "tier": "Budget",
+    "base_location_name": "I-14",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6316,
+      "lng": 72.9644
+    }
+  },
+  {
+    "id": "KRG-ISB-019",
+    "name": "Shoaib Saeed",
+    "skills": [
+      "False Ceiling",
+      "Sofa Cleaning"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "E-11",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7133,
+      "lng": 72.9817
+    }
+  },
+  {
+    "id": "KRG-ISB-020",
+    "name": "Sajid Khan",
+    "skills": [
+      "Furniture Repair",
+      "Intercom Systems",
+      "Geyser Repair"
+    ],
+    "rating": 4.0,
+    "tier": "Budget",
+    "base_location_name": "E-7",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7397,
+      "lng": 73.0682
+    }
+  },
+  {
+    "id": "KRG-ISB-021",
+    "name": "Shehzad Malik",
+    "skills": [
+      "Carpet Cleaning",
+      "Tile Fixing"
+    ],
+    "rating": 4.2,
+    "tier": "Budget",
+    "base_location_name": "H-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6824,
+      "lng": 73.0608
+    }
+  },
+  {
+    "id": "KRG-ISB-022",
+    "name": "Waqas Raza",
+    "skills": [
+      "Networking",
+      "Bathroom Renovation",
+      "Furniture Repair",
+      "Door Fitting"
+    ],
+    "rating": 4.1,
+    "tier": "Budget",
+    "base_location_name": "H-9",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6738,
+      "lng": 73.0405
+    }
+  },
+  {
+    "id": "KRG-ISB-023",
+    "name": "Jameel Paracha",
+    "skills": [
+      "Waterproofing",
+      "Carpet Cleaning",
+      "Fumigation",
+      "Washing Machine Repair"
+    ],
+    "rating": 4.1,
+    "tier": "Premium",
+    "base_location_name": "H-13",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6535,
+      "lng": 72.9694
+    }
+  },
+  {
+    "id": "KRG-ISB-024",
+    "name": "Salman Ali",
+    "skills": [
+      "Pipe Fitting",
+      "Deep Cleaning"
+    ],
+    "rating": 3.2,
+    "tier": "Budget",
+    "base_location_name": "Blue Area",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7101,
+      "lng": 73.0634
+    }
+  },
+  {
+    "id": "KRG-ISB-025",
+    "name": "Zeeshan Chaudhry",
+    "skills": [
+      "Water Filtration",
+      "Painter",
+      "Marble Polishing",
+      "Solar Water Heater"
+    ],
+    "rating": 4.2,
+    "tier": "Budget",
+    "base_location_name": "Bahria Town Islamabad",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5243,
+      "lng": 73.0928
+    }
+  },
+  {
+    "id": "KRG-ISB-026",
+    "name": "Liaqat Shah",
+    "skills": [
+      "Solar Panel Installation",
+      "Wood Polishing",
+      "False Ceiling",
+      "AC Compressor Repair"
+    ],
+    "rating": 3.5,
+    "tier": "Budget",
+    "base_location_name": "DHA Phase 1 Islamabad",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5435,
+      "lng": 73.1393
+    }
+  },
+  {
+    "id": "KRG-ISB-027",
+    "name": "Kamran Bajwa",
+    "skills": [
+      "Carpet Cleaning",
+      "Fumigation",
+      "Networking"
+    ],
+    "rating": 4.2,
+    "tier": "Premium",
+    "base_location_name": "DHA Phase 2 Islamabad",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5316,
+      "lng": 73.1576
+    }
+  },
+  {
+    "id": "KRG-ISB-028",
+    "name": "Qaiser Saeed",
+    "skills": [
+      "Geyser Repair",
+      "Carpenter",
+      "House Cleaning"
+    ],
+    "rating": 3.9,
+    "tier": "Budget",
+    "base_location_name": "PWD Housing Society",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5767,
+      "lng": 73.0773
+    }
+  },
+  {
+    "id": "KRG-ISB-029",
+    "name": "Aamir Javed",
+    "skills": [
+      "Networking",
+      "House Cleaning"
+    ],
+    "rating": 3.7,
+    "tier": "Budget",
+    "base_location_name": "Soan Garden",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6326,
+      "lng": 73.0572
+    }
+  },
+  {
+    "id": "KRG-ISB-030",
+    "name": "Sarfraz Qadir",
+    "skills": [
+      "Wall Texturing",
+      "Bathroom Renovation"
+    ],
+    "rating": 3.3,
+    "tier": "Budget",
+    "base_location_name": "Kuri Road",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6042,
+      "lng": 73.1103
+    }
+  },
+  {
+    "id": "KRG-ISB-031",
+    "name": "Salman Sarwar",
+    "skills": [
+      "Solar Water Heater",
+      "Door Fitting",
+      "Waterproofing",
+      "Pipe Fitting"
+    ],
+    "rating": 4.5,
+    "tier": "Budget",
+    "base_location_name": "Tarnol",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6589,
+      "lng": 72.9435
+    }
+  },
+  {
+    "id": "KRG-ISB-032",
+    "name": "Waqas Siddiqui",
+    "skills": [
+      "Tile Fixing",
+      "Water Filtration",
+      "Pest Control",
+      "Deep Cleaning"
+    ],
+    "rating": 4.3,
+    "tier": "Premium",
+    "base_location_name": "Rawat",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5446,
+      "lng": 73.1652
+    }
+  },
+  {
+    "id": "KRG-ISB-033",
+    "name": "Jameel Ahmed",
+    "skills": [
+      "Intercom Systems",
+      "AC Compressor Repair",
+      "Wiring",
+      "Microwave Repair"
+    ],
+    "rating": 4.7,
+    "tier": "Premium",
+    "base_location_name": "Satellite Town Rawalpindi",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6178,
+      "lng": 73.0589
+    }
+  },
+  {
+    "id": "KRG-ISB-034",
+    "name": "Yasir Nazir",
+    "skills": [
+      "Door Fitting",
+      "Microwave Repair",
+      "AC Compressor Repair",
+      "CCTV Installation"
+    ],
+    "rating": 3.4,
+    "tier": "Budget",
+    "base_location_name": "Chaklala Scheme 3",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6067,
+      "lng": 73.091
+    }
+  },
+  {
+    "id": "KRG-ISB-035",
+    "name": "Rameez Akhtar",
+    "skills": [
+      "Carpet Cleaning",
+      "Solar Panel Installation",
+      "CCTV Installation",
+      "Duct Cleaning"
+    ],
+    "rating": 4.3,
+    "tier": "Budget",
+    "base_location_name": "Bahria Town Phase 8 Rwp",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5143,
+      "lng": 73.0814
+    }
+  },
+  {
+    "id": "KRG-ISB-036",
+    "name": "Waheed Sarwar",
+    "skills": [
+      "Waterproofing",
+      "Pipe Fitting",
+      "Termite Treatment",
+      "Heating Systems"
+    ],
+    "rating": 3.0,
+    "tier": "Budget",
+    "base_location_name": "F-6",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7262,
+      "lng": 73.0678
+    }
+  },
+  {
+    "id": "KRG-ISB-037",
+    "name": "Nadeem Ali",
+    "skills": [
+      "Furniture Repair",
+      "Microwave Repair",
+      "Solar Water Heater",
+      "Fumigation"
+    ],
+    "rating": 3.7,
+    "tier": "Budget",
+    "base_location_name": "F-7",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7178,
+      "lng": 73.0589
+    }
+  },
+  {
+    "id": "KRG-ISB-038",
+    "name": "Farhan Murad",
+    "skills": [
+      "Networking",
+      "Fumigation"
+    ],
+    "rating": 4.9,
+    "tier": "Budget",
+    "base_location_name": "F-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7091,
+      "lng": 73.0566
+    }
+  },
+  {
+    "id": "KRG-ISB-039",
+    "name": "Asghar Gill",
+    "skills": [
+      "Pipe Fitting",
+      "Intercom Systems",
+      "Fridge Repair",
+      "False Ceiling"
+    ],
+    "rating": 4.6,
+    "tier": "Budget",
+    "base_location_name": "F-10",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6961,
+      "lng": 73.0173
+    }
+  },
+  {
+    "id": "KRG-ISB-040",
+    "name": "Sohail Shah",
+    "skills": [
+      "Carpenter",
+      "Water Filtration"
+    ],
+    "rating": 3.0,
+    "tier": "Premium",
+    "base_location_name": "F-11",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6957,
+      "lng": 72.9955
+    }
+  },
+  {
+    "id": "KRG-ISB-041",
+    "name": "Muhammad Ali",
+    "skills": [
+      "Electrician",
+      "Glass Fitting",
+      "Deep Cleaning"
+    ],
+    "rating": 5.0,
+    "tier": "Budget",
+    "base_location_name": "G-6",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7317,
+      "lng": 73.0826
+    }
+  },
+  {
+    "id": "KRG-ISB-042",
+    "name": "Rafiq Chaudhry",
+    "skills": [
+      "Solar Panel Installation",
+      "CCTV Installation",
+      "Solar Water Heater",
+      "Appliance Repair"
+    ],
+    "rating": 4.2,
+    "tier": "Premium",
+    "base_location_name": "G-7",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7091,
+      "lng": 73.0664
+    }
+  },
+  {
+    "id": "KRG-ISB-043",
+    "name": "Irfan Khan",
+    "skills": [
+      "POP Ceiling",
+      "AC Installation",
+      "Termite Treatment"
+    ],
+    "rating": 3.6,
+    "tier": "Budget",
+    "base_location_name": "G-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6967,
+      "lng": 73.0448
+    }
+  },
+  {
+    "id": "KRG-ISB-044",
+    "name": "Noman Saeed",
+    "skills": [
+      "Generator Repair",
+      "Termite Treatment",
+      "Plumbing"
+    ],
+    "rating": 3.2,
+    "tier": "Budget",
+    "base_location_name": "G-9",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6931,
+      "lng": 73.0308
+    }
+  },
+  {
+    "id": "KRG-ISB-045",
+    "name": "Irfan Murad",
+    "skills": [
+      "Pest Control",
+      "Washing Machine Repair",
+      "POP Ceiling",
+      "CCTV Installation"
+    ],
+    "rating": 3.6,
+    "tier": "Premium",
+    "base_location_name": "G-10",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6936,
+      "lng": 73.0137
+    }
+  },
+  {
+    "id": "KRG-ISB-046",
+    "name": "Kashif Murad",
+    "skills": [
+      "Heating Systems",
+      "Marble Polishing",
+      "Wall Texturing"
+    ],
+    "rating": 3.4,
+    "tier": "Budget",
+    "base_location_name": "G-11",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6889,
+      "lng": 72.9986
+    }
+  },
+  {
+    "id": "KRG-ISB-047",
+    "name": "Tanveer Paracha",
+    "skills": [
+      "Fridge Repair",
+      "Wall Texturing",
+      "UPS / Inverter Repair",
+      "Appliance Repair"
+    ],
+    "rating": 4.2,
+    "tier": "Budget",
+    "base_location_name": "G-13",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.665,
+      "lng": 72.9756
+    }
+  },
+  {
+    "id": "KRG-ISB-048",
+    "name": "Sabir Asghar",
+    "skills": [
+      "Pest Control",
+      "Electrician"
+    ],
+    "rating": 4.7,
+    "tier": "Budget",
+    "base_location_name": "G-14",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6592,
+      "lng": 72.9613
+    }
+  },
+  {
+    "id": "KRG-ISB-049",
+    "name": "Sohail Bajwa",
+    "skills": [
+      "False Ceiling",
+      "Water Tank Cleaning",
+      "Geyser Repair",
+      "Termite Treatment"
+    ],
+    "rating": 3.3,
+    "tier": "Budget",
+    "base_location_name": "G-15",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6452,
+      "lng": 72.9437
+    }
+  },
+  {
+    "id": "KRG-ISB-050",
+    "name": "Anwar Akhtar",
+    "skills": [
+      "Intercom Systems",
+      "Sofa Cleaning",
+      "Kitchen Cabinet"
+    ],
+    "rating": 4.6,
+    "tier": "Premium",
+    "base_location_name": "I-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6671,
+      "lng": 73.0727
+    }
+  },
+  {
+    "id": "KRG-ISB-051",
+    "name": "Rafiq Siddiqui",
+    "skills": [
+      "Intercom Systems",
+      "Oven Repair",
+      "Washing Machine Repair"
+    ],
+    "rating": 4.7,
+    "tier": "Budget",
+    "base_location_name": "I-9",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6609,
+      "lng": 73.0488
+    }
+  },
+  {
+    "id": "KRG-ISB-052",
+    "name": "Talha Shah",
+    "skills": [
+      "POP Ceiling",
+      "Pest Control",
+      "Waterproofing",
+      "Washing Machine Repair"
+    ],
+    "rating": 3.4,
+    "tier": "Budget",
+    "base_location_name": "I-10",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.653,
+      "lng": 73.0201
+    }
+  },
+  {
+    "id": "KRG-ISB-053",
+    "name": "Owais Butt",
+    "skills": [
+      "AC Installation",
+      "Carpenter"
+    ],
+    "rating": 4.7,
+    "tier": "Premium",
+    "base_location_name": "I-14",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6294,
+      "lng": 72.9633
+    }
+  },
+  {
+    "id": "KRG-ISB-054",
+    "name": "Shahzad Paracha",
+    "skills": [
+      "Intercom Systems",
+      "Wall Putty"
+    ],
+    "rating": 3.3,
+    "tier": "Premium",
+    "base_location_name": "E-11",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7121,
+      "lng": 72.9834
+    }
+  },
+  {
+    "id": "KRG-ISB-055",
+    "name": "Adeel Abbasi",
+    "skills": [
+      "Water Tank Cleaning",
+      "Fridge Repair",
+      "Networking"
+    ],
+    "rating": 3.2,
+    "tier": "Budget",
+    "base_location_name": "E-7",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7385,
+      "lng": 73.0666
+    }
+  },
+  {
+    "id": "KRG-ISB-056",
+    "name": "Mubashir Abbasi",
+    "skills": [
+      "Glass Fitting",
+      "Microwave Repair",
+      "Water Heater Installation"
+    ],
+    "rating": 4.8,
+    "tier": "Budget",
+    "base_location_name": "H-8",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6804,
+      "lng": 73.0569
+    }
+  },
+  {
+    "id": "KRG-ISB-057",
+    "name": "Awais Aslam",
+    "skills": [
+      "Deep Cleaning",
+      "Wood Polishing",
+      "Appliance Repair"
+    ],
+    "rating": 4.7,
+    "tier": "Premium",
+    "base_location_name": "H-9",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6686,
+      "lng": 73.0406
+    }
+  },
+  {
+    "id": "KRG-ISB-058",
+    "name": "Kamran Sheikh",
+    "skills": [
+      "Bathroom Renovation",
+      "Pest Control",
+      "Water Heater Installation",
+      "Pipe Fitting"
+    ],
+    "rating": 4.9,
+    "tier": "Budget",
+    "base_location_name": "H-13",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.6505,
+      "lng": 72.9704
+    }
+  },
+  {
+    "id": "KRG-ISB-059",
+    "name": "Faisal Abbasi",
+    "skills": [
+      "Fumigation",
+      "Glass Fitting",
+      "Bathroom Renovation"
+    ],
+    "rating": 3.1,
+    "tier": "Budget",
+    "base_location_name": "Blue Area",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.7125,
+      "lng": 73.0639
+    }
+  },
+  {
+    "id": "KRG-ISB-060",
+    "name": "Taimoor Mehmood",
+    "skills": [
+      "Solar Panel Installation",
+      "Bathroom Renovation",
+      "Wall Putty"
+    ],
+    "rating": 4.1,
+    "tier": "Budget",
+    "base_location_name": "Bahria Town Islamabad",
+    "city": "Islamabad",
+    "coordinates": {
+      "lat": 33.5196,
+      "lng": 73.0921
+    }
+  }
+]
