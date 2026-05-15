@@ -7,7 +7,7 @@
 An intelligent, multimodal home-services marketplace built for Pakistan’s informal economy.
 
 Karigar.AI goes beyond rigid dropdown menus by letting users request services naturally in **Roman Urdu**, **Urdu**, or **English** using **text**, **voice**, or **images**.  
-The platform then translates messy real-world input into structured intent and routes it toward the right technician workflow.
+The platform then translates messy real-world input into structured intent, finds the optimal technician, manages availability, and coordinates the booking automatically.
 
 ---
 
@@ -17,50 +17,40 @@ The platform then translates messy real-world input into structured intent and r
   Supports Roman Urdu, Urdu script, English, and mixed language input.
 
 - **Multimodal Service Requests**  
-  Users can place requests through:
-  - Text messages
-  - Voice-to-text transcription (Flutter native support)
-  - Image uploads (damage/context-aware intent extraction)
+  Users can place requests through text, voice-to-text (Flutter), or Image uploads (damage/context-aware intent extraction).
 
-- **Smart Intent Extraction (Agent 1)**  
-  Python-based AI agent that extracts structured fields:
-  - `service_type`
-  - `service_details`
-  - `location`
-  - `time`
-  - `urgency` (High / Medium / Low)
-  - `tier` (Budget / Premium / Any)
-  - `raw_language`
+- **Multi-Agent Architecture**  
+  A pipeline of three distinct AI agents working together to fulfill requests:
+  - **Agent 1 (Intent Extractor)**: Converts natural language into structured JSON, using system dates to parse exact `target_date` and `target_time_slot`.
+  - **Agent 2 (Intelligent Matchmaker)**: Filters the database by skill and real-time availability, computes Haversine distances to the user's location, and uses an LLM to select the optimal technician based on urgency and budget.
+  - **Agent 3 (Coordinator)**: Interacts with the user to confirm the booking, handles negotiations/rejections (e.g., "I want someone cheaper"), updates the `appointments_ledger`, and dispatches mock SMS notifications to the technician.
 
-- **Visual Damage Awareness**  
-  Optional base64 image input is analyzed to identify visible faults like leaks, burn marks, corrosion, or electrical risk.
-
-- **Intelligent Matchmaker (Agent 2 - WIP)**  
-  Autonomous routing logic that aims to balance user urgency and budget preference, instead of only choosing by nearest location.
+- **Real-World Constraints**  
+  Technicians are strictly limited to a maximum of 2 bookings per day via the `appointments_ledger.json` to reflect realistic scheduling limitations.
 
 ---
 
-## Architecture
+## Architecture Pipeline
 
 Karigar.AI is organized as a modular, agent-driven system:
 
-### 1) Multimodal Intent Extractor (Agent 1) — Python
-- Uses an LLM (**Gemini 2.5 Flash**) via an OpenAI-compatible REST API.
+### 1) Multimodal Intent Extractor (Agent 1)
+- Uses **Gemini 2.5 Flash** via an OpenAI-compatible REST API.
 - Parses colloquial, noisy user requests into clean structured JSON.
-- Incorporates visual signals from uploaded images when provided.
+- Incorporates visual signals from uploaded images.
 
-### 2) Intelligent Matchmaker (Agent 2) — WIP
-- Autonomous decision layer for technician assignment.
-- Weighs urgency and price sensitivity to improve service fit quality.
+### 2) Intelligent Matchmaker (Agent 2)
+- **Deterministic Filtering**: Checks `karigars_db.json` (120+ profiles across Lahore/Islamabad) for required skills and filters out fully-booked technicians using `appointments_ledger.json`.
+- **AI Decision Engine**: Weighs distance, technician rating, and user tier preferences to generate a "Glass Box" reasoning for its choice.
 
-### 3) Backend API — Node.js
-- Handles socket communication and orchestration.
-- Routes request payloads between frontend clients and AI agents.
+### 3) Customer Coordinator (Agent 3)
+- NLP-driven interactive loop that determines user sentiment (ACCEPTED, REJECTED, NEGOTIATING).
+- Automatically adjusts matching criteria (e.g., downgrading to "Budget" tier) if the user rejects a quote.
+- Triggers outbound (mock) SMS to the Karigar upon confirmation.
 
-### 4) Frontend — Flutter Mobile App
-- Native voice-to-text capture.
-- Image capture/upload for multimodal requests.
-- User-facing request flow for home services (Plumber, Electrician, AC Technician, etc.).
+### 4) Backend API & Frontend (WIP)
+- **Backend (Node.js)**: Handles socket communication and orchestration.
+- **Frontend (Flutter)**: Native mobile app with GPS fallback capabilities for seamless location tracking.
 
 ---
 
@@ -71,7 +61,9 @@ Karigar.AI is organized as a modular, agent-driven system:
   "service_type": "AC Gas Leak Repair",
   "service_details": "Gas leak near outdoor unit copper joint",
   "location": "DHA Phase 5 Lahore",
-  "time": "Immediately",
+  "raw_time": "kal subah",
+  "target_date": "2026-05-16",
+  "target_time_slot": "Morning",
   "urgency": "High",
   "tier": "Budget",
   "raw_language": "Roman Urdu"
@@ -101,32 +93,24 @@ cd karigar.AI
 cd ai_agents
 python -m venv .venv
 source .venv/bin/activate
-pip install httpx
+pip install httpx python-dotenv
 ```
 
-Set environment variables:
+Create a `.env` file in the `ai_agents` directory:
 
 ```bash
-export LLM_API_KEY="your_api_key"
-export LLM_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai"
-export LLM_MODEL="gemini-2.5-flash"
+LLM_API_KEY="your_api_key_here"
+LLM_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai"
+LLM_MODEL="gemini-2.5-flash"
 ```
 
-### 3) Backend Setup (Node.js)
-
+To run the end-to-end test loop:
 ```bash
-cd backend
-npm install
-npm run dev
+python ai_agents/coordinator.py
 ```
 
-### 4) Mobile App Setup (Flutter)
-
-```bash
-cd mobile_app
-flutter pub get
-flutter run
-```
+### 3) Backend & Mobile Setup (WIP)
+Refer to the respective folders for `Node.js` and `Flutter` initialization instructions.
 
 ---
 
@@ -135,7 +119,12 @@ flutter run
 ```text
 karigar.AI/
 ├── ai_agents/
-│   └── intent_extractor.py
+│   ├── .env.example
+│   ├── intent_extractor.py       # Agent 1
+│   ├── matchmaker.py             # Agent 2
+│   ├── coordinator.py            # Agent 3
+│   ├── karigars_db.json          # 120-profile database
+│   └── appointments_ledger.json  # Booking tracker
 ├── backend/
 │   └── README.md
 └── mobile_app/
