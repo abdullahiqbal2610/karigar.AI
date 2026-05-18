@@ -91,7 +91,10 @@ def coordinate_booking(intent: dict, match: dict) -> bool:
     print(f"Wo {match['distance_km']} km door hai ({k['tier']} tier).")
     print(f"Timing: {intent.get('target_date')} ({intent.get('target_time_slot')})")
     
-    reply = input("\n> Shall I confirm this booking? (Yes / No / Need cheaper): ")
+    if len(sys.argv) > 1:
+        reply = "Yes"
+    else:
+        reply = input("\n> Shall I confirm this booking? (Yes / No / Need cheaper): ")
     
     # Use LLM to parse intent of reply
     api_key = os.getenv("LLM_API_KEY")
@@ -124,16 +127,24 @@ def coordinate_booking(intent: dict, match: dict) -> bool:
         return decision["status"], decision["user_sentiment"]
 
 if __name__ == "__main__":
-    # Full End-to-End Test Loop
-    print("\n" + "*" * 60)
-    print(" 🏠 KARIGAR.AI END-TO-END WORKFLOW TEST")
-    print("*" * 60)
+    is_headless = len(sys.argv) > 1
     
-    user_req = input("\nDescribe your problem: ")
-    if not user_req:
-        user_req = "Bhai kal DHA Phase 5 mein AC ki gas leak theek karni hai, premium banda laoo"
-        print(f"Using default: {user_req}")
+    if is_headless:
+        user_req = sys.argv[1]
+        # Redirect stdout to stderr to keep real stdout clean for final JSON output
+        real_stdout = sys.stdout
+        sys.stdout = sys.stderr
+    else:
+        # Full End-to-End Test Loop
+        print("\n" + "*" * 60)
+        print(" 🏠 KARIGAR.AI END-TO-END WORKFLOW TEST")
+        print("*" * 60)
         
+        user_req = input("\nDescribe your problem: ")
+        if not user_req:
+            user_req = "Bhai kal DHA Phase 5 mein AC ki gas leak theek karni hai, premium banda laoo"
+            print(f"Using default: {user_req}")
+            
     print("\n[Agent 1 is extracting intent...]")
     intent = extract_intent(user_req)
     
@@ -168,3 +179,19 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error during match/coordination: {e}")
             break
+
+    if is_headless:
+        # Output clean JSON to stdout for Node.js
+        if 'match' in locals() and match.get("selected_karigar_id") and 'status' in locals() and status == "ACCEPTED":
+            k = match["karigar_profile"]
+            final_response = {
+                "service_type": intent.get("service_type"),
+                "location": intent.get("location"),
+                "target_date": intent.get("target_date"),
+                "target_time_slot": intent.get("target_time_slot"),
+                "recommended_provider": k["name"],
+                "status": "Booking Confirmed"
+            }
+            print(json.dumps(final_response), file=real_stdout)
+        else:
+            print(json.dumps({"error": "Failed to confirm booking"}), file=real_stdout)

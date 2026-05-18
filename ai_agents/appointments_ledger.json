@@ -10,5 +10,11 @@
     "date": "2026-05-16",
     "time_slot": "Any",
     "booked_at": "2026-05-15T19:53:19.877399"
+  },
+  {
+    "karigar_id": "KRG-LHR-001",
+    "date": "2026-05-19",
+    "time_slot": "Morning",
+    "booked_at": "2026-05-18T06:03:00.365745"
   }
 ]
